@@ -27,7 +27,7 @@ public class CarController {
 	@GetMapping("/RegisterCar")
 	public String registerCarGet(Model model)
 	{
-		return "RegisterCar.html";
+		return "RegisterCar";
 	}
 
 	
