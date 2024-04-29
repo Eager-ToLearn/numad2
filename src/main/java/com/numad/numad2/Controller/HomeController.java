@@ -33,21 +33,30 @@ public class HomeController {
 	@GetMapping("/admin/RegisterCar")
 	public String showRegPage(Model model)
 	{
-		model.addAttribute("carInfo", new CarInfo());
+		//model.addAttribute("carInfo", new CarInfo());
 		
 		return "Registered";
 	}
 	
-	@PostMapping("/admin/Registered/RegisterCar")
-	public String regCar(@ModelAttribute("carInfo")CarInfo carInfo)
-	{
-		
-		carInfoRepo.save(carInfo);
-		
-		return "redirect:/admin/RegisterCar";
-		
-		
-	}
+//	@GetMapping("/admin/Registered/RegisterCar")
+//	public String showRegi(Model model)
+//	{
+//		model.addAttribute("carInfo", new CarInfo());
+//		
+//		return "RegisterCar";
+//		
+//	}
+	
+//	@PostMapping("/admin/Registered/RegisterCar")
+//	public String regCar(@ModelAttribute("carInfo")CarInfo carInfo)
+//	{
+//		
+//		carInfoRepo.save(carInfo);
+//		
+//		return "redirect:/admin/RegisterCar";
+//		
+//		
+//	}
 			
 
 }

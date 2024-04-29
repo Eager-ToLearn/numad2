@@ -41,10 +41,11 @@
     <table class="table">
         <thead class="thead-light">
         <tr>
-            <th scope="col">SN</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Preview</th>
+            <th scope="col">ID</th>
+            <th scope="col">Owners name</th>
+            <th scope="col">Car Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">License plate</th>
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
              <th scope="col">TrackCar</th>
@@ -52,14 +53,17 @@
         </thead>
         <tbody>
 
-        <tr th:each="product, iStat : ${products}">
+        <tr th:each="carInfo, iStat : ${Registered}">
             <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${product.name}">Larry</td>
-            <td th:text="${product.category.name}">Larry</td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
+            <td th:text="${carInfo.owner}">Larry</td>
+            <td th:text="${carInfo.brand}">Larry</td>
+            <td th:text="${carInfo.carModel}">Larry</td>
+            <td th:text="${carInfo.licensePlate}">Larry</td>
+           <!--<td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>-->
 
             <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
             <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
+            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">TrackCar</a></td>
 
         </tr>
         </tbody>
