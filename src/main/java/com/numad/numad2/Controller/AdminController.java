@@ -24,6 +24,13 @@ public class AdminController {
 	
 	@Autowired
 	CarInfoService carInfoService;
+	
+	
+	@GetMapping("/admin/RegisterCar/TrackCar/{id}")
+	public String trackCar(Model model)
+	{
+		return "TrackCar";
+	}
 //	
 ////	@GetMapping("adminHome/RegisterCar")
 ////	public String adminHome()
