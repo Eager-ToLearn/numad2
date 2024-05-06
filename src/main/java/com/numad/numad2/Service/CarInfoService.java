@@ -1,5 +1,6 @@
 package com.numad.numad2.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,15 @@ public class CarInfoService {
 		carInfoRepo.deleteById(carId);
 	}
 	
-	
-	public Optional<CarInfo> getCarInfoById(int carId) {
-		
-	
-	//public String getCarInfoById(int carId)
 	//public Optional<CarInfo> getCarInfoById(int carId)
-	
-		//return carInfoRepo.findById(carId);
+	public Optional<CarInfo> getCarInfoById(int carId)
+	{
 		return carInfoRepo.findById(carId);
 		
+	}
+
+	 public List<CarInfo> getAllCarInfo() {
+	        return carInfoRepo.findAll();
 	}
 	
 

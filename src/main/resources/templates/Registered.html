@@ -53,17 +53,21 @@
         </thead>
         <tbody>
 
-        <tr th:each="carInfo, iStat : ${Registered}">
-            <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${carInfo.owner}">Larry</td>
-            <td th:text="${carInfo.brand}">Larry</td>
-            <td th:text="${carInfo.carModel}">Larry</td>
-            <td th:text="${carInfo.licensePlate}">Larry</td>
-           <!--<td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>-->
-
-            <td><a href="" th:href="@{/admin/RegisterCar/delete/{id}(id=${carInfo.carId})}" class="btn btn-danger">Delete</a></td>
-            <td><a href="" th:href="@{/admin/RegisterCar/update/{id}(id=${carInfo.carId})}" class="btn btn-warning">Update</a></td>
-            <td><a href="" th:href="@{/admin/RegisterCar/TrackCar/{id}(id=${carInfo.carId})}" class="btn btn-warning">TrackCar</a></td>
+       <tr th:each="carInfo : ${carList}">
+		    <td th:text="${carInfo.carId}"></td>
+    <td th:text="${carInfo.owner}"></td>
+    <td th:text="${carInfo.brand}"></td>
+    <td th:text="${carInfo.carModel}"></td>
+    <td th:text="${carInfo.licensePlate}"></td>
+   
+    <td>
+        <a th:href="@{/admin/Registered/RegisterCar/delete(carId=${carInfo.carId})}"
+           class="btn btn-danger">Delete</a>
+        <a th:href="@{/admin/Registered/RegisterCar/update(carId=${carInfo.carId})}"
+           class="btn btn-warning">Update</a>
+        <a th:href="@{/admin/RegisterCar/TrackCar/{carId}(carId=${carInfo.carId})}"
+           class="btn btn-info">Track Car</a>
+    </td>
 
         </tr>
         </tbody>
