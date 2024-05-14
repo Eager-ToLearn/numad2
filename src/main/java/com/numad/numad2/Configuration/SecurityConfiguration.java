@@ -1,28 +1,60 @@
 package com.numad.numad2.Configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableWebSecurity
+@Order(1)
 public class SecurityConfiguration {
+	
+	
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
+	{
+		http.authorizeRequests().requestMatchers("/").permitAll();
+		//http.authorizeRequests().requestMatchers("/").permitAll();
+		
+		
+		
+		return http.build();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
-                .requestMatchers("/").permitAll() // Permit access to home page
-                .requestMatchers("/admin/**").authenticated() // Require authentication for pages under /secure
-            .and()
-            .formLogin(); // Enable form based authentication
-    }
-    
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder()
-    {
-    	return new BCryptPasswordEncoder();
-    }
+//    @SuppressWarnings("deprecation")
+//	protected void configure(HttpSecurity http) throws Exception {
+//        http
+//            .authorizeRequests()
+//                .requestMatchers("/").permitAll() // Permit access to home page
+//                .requestMatchers("/admin/**").authenticated() // Require authentication for pages under /secure
+//            .and()
+//            .formLogin(); // Enable form based authentication
+//    }
+//    
+//    @Bean
+//    public BCryptPasswordEncoder bCryptPasswordEncoder()
+//    {
+//    	return new BCryptPasswordEncoder();
+//    }
 }

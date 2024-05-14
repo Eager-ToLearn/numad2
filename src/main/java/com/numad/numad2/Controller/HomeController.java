@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.numad.numad2.Model.CarInfo;
+import com.numad.numad2.Model.User;
 import com.numad.numad2.Repository.CarInfoRepo;
 
 @Controller
@@ -28,6 +29,13 @@ public class HomeController {
 	public String getAdminHome()
 	{
 		return "adminHome";
+	}
+	
+	@GetMapping("/admin/login")
+	public String getAdminLogin(Model model)
+	{
+		model.addAttribute("user", new User());
+		return "AdminLogin";
 	}
 	
 	@GetMapping("/admin/RegisterCar")
