@@ -38,6 +38,20 @@ public class SecurityConfiguration {
 		//http.authorizeRequests().requestMatchers("/").permitAll();
 		
 		//http.antMatcher("/admin/**").authorizeRequests().
+		http.securityMatcher("/admin/**").authorizeRequests().anyRequest().hasAuthority("ADMIN")
+		.and()
+		.formLogin()
+		.loginPage("/admin/login")
+		.usernameParameter("email")
+		.loginProcessingUrl("/admin/login")
+		.defaultSuccessUrl("/admin/home")
+		.permitAll()
+		.and()
+		.logout().logoutUrl("/admin/logout")
+		.logoutSuccessUrl("/");
+		
+		
+		
 		
 		
 		
