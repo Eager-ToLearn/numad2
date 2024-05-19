@@ -96,6 +96,13 @@ public class AdminController {
 		
 	}
 	
+//	@GetMapping("/admin/RegisterCar")
+//	public String registered(Model model)
+//	{
+//		model.addAttribute("carList", carInfoService.getAllCarInfo());
+//		
+//		return "Registered";
+//	}
 	
 	//***Create Operation***
 	@PostMapping("/admin/Registered/RegisterCar")
@@ -173,6 +180,15 @@ public class AdminController {
 	public String trackCar(int carId)
 	{
 		return "TrackCar";
+	}
+	
+	@GetMapping("/admin/RegisterCar")
+	public String registeredcCar(Model model)
+	{
+		model.addAttribute("Registered", carInfoService.getAllCarInfo());
+	
+		
+		return "Registered";
 	}
 		
 	

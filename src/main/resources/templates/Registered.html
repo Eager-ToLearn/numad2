@@ -24,7 +24,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
+                    <a class="nav-link" th:href="@{/adminHome}" href="#">admin-home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
@@ -46,24 +46,23 @@
             <th scope="col">Car Brand</th>
             <th scope="col">Model</th>
             <th scope="col">License plate</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Update</th>
-             <th scope="col">TrackCar</th>
+            <th scope="col">Action</th>
+            
         </tr>
         </thead>
         <tbody>
 
-       <tr th:each="carInfo : ${carList}">
-		    <td th:text="${carInfo.carId}"></td>
+       <tr th:each="carInfo, iStat : ${Registered}">
+		    <th scope="row" th:text="${iStat.index + 1}">1</th>
     <td th:text="${carInfo.owner}"></td>
     <td th:text="${carInfo.brand}"></td>
     <td th:text="${carInfo.carModel}"></td>
     <td th:text="${carInfo.licensePlate}"></td>
    
     <td>
-        <a th:href="@{/admin/Registered/RegisterCar/delete(carId=${carInfo.carId})}"
+        <a th:href="@{/admin/Registered/RegisterCar/delete/{carId}(carId=${carInfo.carId})}"
            class="btn btn-danger">Delete</a>
-        <a th:href="@{/admin/Registered/RegisterCar/update(carId=${carInfo.carId})}"
+        <a th:href="@{/admin/Registered/RegisterCar/update/{carId}(carId=${carInfo.carId})}"
            class="btn btn-warning">Update</a>
         <a th:href="@{/admin/RegisterCar/TrackCar/{carId}(carId=${carInfo.carId})}"
            class="btn btn-info">Track Car</a>

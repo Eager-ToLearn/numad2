@@ -38,13 +38,13 @@ public class HomeController {
 		return "AdminLogin";
 	}
 	
-	@GetMapping("/admin/RegisterCar")
-	public String showRegPage(Model model)
-	{
-		//model.addAttribute("carInfo", new CarInfo());
-		
-		return "Registered";
-	}
+//	@GetMapping("/admin/RegisterCar")
+//	public String showRegPage(Model model)
+//	{
+//		//model.addAttribute("carInfo", new CarInfo());
+//		
+//		return "Registered";
+//	}
 	
 //	@GetMapping("/admin/Registered/RegisterCar")
 //	public String showRegi(Model model)

@@ -44,7 +44,7 @@ public class SecurityConfiguration {
 		.loginPage("/admin/login")
 		.usernameParameter("email")
 		.loginProcessingUrl("/admin/login")
-		.defaultSuccessUrl("/admin/home")
+		.defaultSuccessUrl("/adminHome")
 		.permitAll()
 		.and()
 		.logout().logoutUrl("/admin/logout")
