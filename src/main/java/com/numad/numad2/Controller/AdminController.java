@@ -113,7 +113,7 @@ public class AdminController {
 		
 		carInfo.setCarId(carInfo.getCarId());
 		carInfo.setOwner(carInfo.getOwner());
-		carInfo.setcontactNo(carInfo.getcontactNo());
+		carInfo.setContactNo(carInfo.getContactNo());
 		carInfo.setEmail(carInfo.getEmail());
 		carInfo.setBrand(carInfo.getBrand());
 		carInfo.setLicensePlate(carInfo.getLicensePlate());
@@ -169,18 +169,18 @@ public class AdminController {
 	    if (optionalCarInfo.isPresent()) {
 	        // Add the carInfo object to the model
 	        model.addAttribute("carInfo", optionalCarInfo.get());
-	        return "RegisterCar"; // Return the view to update the car information
+	        return "RegisterCar";
 	    } else {
-	        // If car information does not exist, redirect to an error page or handle accordingly
-	        return "error"; // You can replace "error" with the appropriate error page
+	        // error handling
+	        return "error";
 	    }
 	}
 
-	@GetMapping("/admin/RegisterCar/TrackCar/{carId}")
-	public String trackCar(int carId)
-	{
-		return "TrackCar";
-	}
+//	@GetMapping("/admin/RegisterCar/TrackCar/{carId}")
+//	public String trackCar(int carId)
+//	{
+//		return "TrackCar";
+//	}
 	
 	@GetMapping("/admin/RegisterCar")
 	public String registeredcCar(Model model)

@@ -46,6 +46,7 @@
             <th scope="col">Car Brand</th>
             <th scope="col">Model</th>
             <th scope="col">License plate</th>
+            <th scope="col">ip address</th>
             <th scope="col">Action</th>
             
         </tr>
@@ -58,6 +59,7 @@
     <td th:text="${carInfo.brand}"></td>
     <td th:text="${carInfo.carModel}"></td>
     <td th:text="${carInfo.licensePlate}"></td>
+    <td th:text="${carInfo.ipAddress}"></td>
    
     <td>
         <a th:href="@{/admin/Registered/RegisterCar/delete/{carId}(carId=${carInfo.carId})}"

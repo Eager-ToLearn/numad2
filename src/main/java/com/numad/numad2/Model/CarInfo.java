@@ -34,13 +34,16 @@ public class CarInfo {
 	private String licensePlate;
 	private Year makeYear;
 	
+	@Column(nullable = false, unique = true)
+	private String ipAddress;
+
 	public CarInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public CarInfo(int carId, String owner, String contactNo, String email, String brand, String carModel,
-			String licensePlate, Year makeYear) {
+			String licensePlate, Year makeYear, String ipAddress) {
 		super();
 		this.carId = carId;
 		this.owner = owner;
@@ -50,6 +53,7 @@ public class CarInfo {
 		this.carModel = carModel;
 		this.licensePlate = licensePlate;
 		this.makeYear = makeYear;
+		this.ipAddress = ipAddress;
 	}
 
 	public int getCarId() {
@@ -68,11 +72,11 @@ public class CarInfo {
 		this.owner = owner;
 	}
 
-	public String getcontactNo() {
+	public String getContactNo() {
 		return contactNo;
 	}
 
-	public void setcontactNo(String contactNo) {
+	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
 
@@ -116,12 +120,21 @@ public class CarInfo {
 		this.makeYear = makeYear;
 	}
 
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
 	@Override
 	public String toString() {
 		return "CarInfo [carId=" + carId + ", owner=" + owner + ", contactNo=" + contactNo + ", email=" + email
 				+ ", brand=" + brand + ", carModel=" + carModel + ", licensePlate=" + licensePlate + ", makeYear="
-				+ makeYear + "]";
+				+ makeYear + ", ipAddress=" + ipAddress + "]";
 	}
+	
 	
 	
 	
