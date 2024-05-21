@@ -24,6 +24,8 @@ public class CarInfoService {
 	public void delCarInfoById(int carId)
 	{
 		carInfoRepo.deleteById(carId);
+		
+		
 	}
 	
 	//public Optional<CarInfo> getCarInfoById(int carId)

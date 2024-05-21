@@ -62,7 +62,7 @@
     <td th:text="${carInfo.ipAddress}"></td>
    
     <td>
-        <a th:href="@{/admin/Registered/RegisterCar/delete/{carId}(carId=${carInfo.carId})}"
+        <a th:href="@{/admin/Registered/RegisterCar/delete{carId}(carId=${carInfo.carId})}"
            class="btn btn-danger">Delete</a>
         <a th:href="@{/admin/Registered/RegisterCar/update/{carId}(carId=${carInfo.carId})}"
            class="btn btn-warning">Update</a>

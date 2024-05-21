@@ -73,21 +73,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/admin/login}" href="#">AdminPage</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
-                </li>
+                
                 <li class="nav-item active">
                     <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
-                </li>
-                <li class="nav-item active">
-                    <span class="nav-link" th:text="${cartCount}">0</span>
-                </li>
+                
             </ul>
 
         </div>
@@ -95,6 +88,12 @@
 </nav>
 
 <div class="slideshow-container">
+	<div class="slide">
+        <img src="/images/image 3.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <img src="/images/image 7.jpg" alt="Slide 2">
+    </div>
     <div class="slide">
         <img src="/images/logo.jpg" alt="Slide 1">
     </div>

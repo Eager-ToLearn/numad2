@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.numad.numad2.Model.CarInfo;
 import com.numad.numad2.Repository.CarInfoRepo;
@@ -26,11 +27,11 @@ public class AdminController {
 	CarInfoService carInfoService;
 	
 	
-	@GetMapping("/admin/RegisterCar/TrackCar/{id}")
-	public String trackCar(Model model)
-	{
-		return "TrackCar";
-	}
+//	@GetMapping("/admin/RegisterCar/TrackCar/{id}")
+//	public String trackCar(Model model)
+//	{
+//		return "TrackCar";
+//	}
 //	
 ////	@GetMapping("adminHome/RegisterCar")
 ////	public String adminHome()
@@ -96,13 +97,6 @@ public class AdminController {
 		
 	}
 	
-//	@GetMapping("/admin/RegisterCar")
-//	public String registered(Model model)
-//	{
-//		model.addAttribute("carList", carInfoService.getAllCarInfo());
-//		
-//		return "Registered";
-//	}
 	
 	//***Create Operation***
 	@PostMapping("/admin/Registered/RegisterCar")
@@ -119,6 +113,7 @@ public class AdminController {
 		carInfo.setLicensePlate(carInfo.getLicensePlate());
 		carInfo.setCarModel(carInfo.getCarModel());
 		carInfo.setMakeYear(carInfo.getMakeYear());
+		carInfo.setIpAddress(carInfo.getIpAddress());
 		
 		carInfoService.RegCar(carInfo);
 		
@@ -132,7 +127,8 @@ public class AdminController {
 	{
 		carInfoService.delCarInfoById(carId);
 		
-		return "redirect:/admin/Registered";
+		
+		return "redirect:/admin/RegisterCar";
 	}
 	
 //	//***Update Operation***
@@ -176,11 +172,7 @@ public class AdminController {
 	    }
 	}
 
-//	@GetMapping("/admin/RegisterCar/TrackCar/{carId}")
-//	public String trackCar(int carId)
-//	{
-//		return "TrackCar";
-//	}
+
 	
 	@GetMapping("/admin/RegisterCar")
 	public String registeredcCar(Model model)
@@ -190,6 +182,35 @@ public class AdminController {
 		
 		return "Registered";
 	}
+	
+//	@GetMapping("/admin/RegisterCar/TrackCar/{carId}")
+//	public String trackCar(@PathVariable int carId, Model model)
+//	{
+//		return "TrackCar";
+//	}
+//	@GetMapping("/admin/RegisterCar/TrackCar/{ipAddress}")
+//	public String trackCar(@PathVariable String ipAddress, Model model)
+//	{
+//		return "TrackCar";
+//	}
+	  @GetMapping("/admin/RegisterCar/TrackCar/{carId}")
+	    public String trackCar(@PathVariable int carId, Model model) {
+	        // Here, you would typically fetch CarInfo object from the database using carId
+	        // For demonstration purposes, let's assume you have a CarInfoService to fetch the CarInfo
+	        Optional<CarInfo> carInfo = carInfoService.getCarInfoById(carId);
+
+	        // Check if carInfo is null (not found)
+	        if (carInfo == null) {
+	            // Handle not found scenario (redirect, error page, etc.)
+	            return "CarNotFound";
+	        }
+
+	        // Pass carInfo object to the view
+	        model.addAttribute("carInfo", carInfo);
+
+	        // Render the "TrackCar" view
+	        return "TrackCar";
+	    }
 		
 	
 
